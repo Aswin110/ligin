@@ -31,7 +31,7 @@ async function main() {
 passport.use(
   new JWTStrategy(
     {
-      secretOrKey: process.env.SECRET,
+      secretOrKey: "secret",
       jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
       issuer: process.env.SERVER_URL,
       audience: process.env.CLIENT_URL,
