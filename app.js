@@ -16,6 +16,7 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 var app = express();
+console.log("process", process.env);
 
 mongoose.set("strictQuery", false);
 
