@@ -9,9 +9,9 @@ var usersRouter = require("./routes/users");
 const compression = require("compression");
 
 const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
 const JWTStrategy = require("passport-jwt").Strategy;
 const ExtractJWT = require("passport-jwt").ExtractJwt;
+const User = require("./models/user");
 const dotenv = require("dotenv");
 
 dotenv.config();
@@ -27,7 +27,7 @@ async function main() {
   await mongoose.connect(mongoDB);
   console.log("connected to mongodb");
 }
-console.log("secret", process.env.SECRET);
+
 passport.use(
   new JWTStrategy(
     {
