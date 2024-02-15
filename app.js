@@ -27,7 +27,7 @@ async function main() {
   await mongoose.connect(mongoDB);
   console.log("connected to mongodb");
 }
-
+console.log("secret", process.env.SECRET);
 passport.use(
   new JWTStrategy(
     {
