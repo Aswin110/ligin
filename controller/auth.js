@@ -34,7 +34,7 @@ exports.login = [
         );
 
         if (passwordMatch) {
-          const token = jwt.sign({ user: user.toJSON() }, process.env.SECRET, {
+          const token = jwt.sign({ user: user.toJSON() }, "secret", {
             expiresIn: "1d",
           });
 
@@ -56,7 +56,7 @@ exports.login = [
 
         await user.save();
 
-        const token = jwt.sign({ user: user.toJSON() }, process.env.SECRET, {
+        const token = jwt.sign({ user: user.toJSON() }, "secret", {
           expiresIn: "1d",
         });
 

@@ -19,7 +19,8 @@ var app = express();
 
 mongoose.set("strictQuery", false);
 
-const mongoDB = process.env.MONGODB_URI;
+const mongoDB =
+  "mongodb+srv://aswinashok:a2bn1povilk@locallibrary.uudclkp.mongodb.net/Test_jwt?retryWrites=true&w=majority";
 console.log(mongoDB);
 main().catch((err) => console.log(err));
 async function main() {
@@ -32,8 +33,6 @@ passport.use(
     {
       secretOrKey: "secret",
       jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
-      issuer: process.env.SERVER_URL,
-      audience: process.env.CLIENT_URL,
     },
     async (jwt_payload, done) => {
       console.log("jwt_payload", jwt_payload);
