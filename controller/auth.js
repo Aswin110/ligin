@@ -3,6 +3,9 @@ const { body, validationResult } = require("express-validator");
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 exports.login = [
   body("username", "username required").trim().isLength({ min: 3 }).escape(),
