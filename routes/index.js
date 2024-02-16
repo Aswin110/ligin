@@ -7,9 +7,11 @@ router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
 
-// router.get("/login", controller.login);
+router.get("/login", controller.login_page);
 
 router.post("/login", controller.login);
+
+router.post("/signup", controller.signup);
 
 router.post("/logout", controller.logout);
 
