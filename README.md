@@ -4,6 +4,11 @@ Hi! welcome
 
 Project Link: https://login-signin-jwt.railway.internal
 
+# login
+
+mail: aswinashok110@gmail.com
+password: 12345678
+
 # env
 
 MONGODB_URI = 'mongodb+srv://username:password@locallibrary.uudclkp.mongodb.net/Test_jwt?retryWrites=true&w=majority'
