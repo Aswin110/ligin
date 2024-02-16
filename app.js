@@ -21,7 +21,6 @@ var app = express();
 mongoose.set("strictQuery", false);
 
 const mongoDB = process.env.MONGODB_URI;
-console.log("mongoDB", mongoDB);
 main().catch((err) => console.log(err));
 async function main() {
   await mongoose.connect(mongoDB);
