@@ -16,24 +16,29 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 var app = express();
-console.log("process", process.env);
+// console.log("process", process.env);
 
 mongoose.set("strictQuery", false);
 
-const mongoDB =
-  "mongodb+srv://aswinashok:a2bn1povilk@locallibrary.uudclkp.mongodb.net/Test_jwt?retryWrites=true&w=majority";
-console.log(mongoDB);
+const mongoDB = process.env.MONGODB_URI;
+console.log("mongoDB", mongoDB);
 main().catch((err) => console.log(err));
 async function main() {
   await mongoose.connect(mongoDB);
   console.log("connected to mongodb");
 }
 
+console.log("SECRET", process.env.SECRET);
+console.log("SERVER_URL", process.env.SERVER_URL);
+console.log("CLIENT_URL", process.env.CLIENT_URL);
+
 passport.use(
   new JWTStrategy(
     {
-      secretOrKey: "secret",
+      secretOrKey: process.env.SECRET,
       jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
+      issuer: process.env.SERVER_URL,
+      audience: process.env.CLIENT_URL,
     },
     async (jwt_payload, done) => {
       console.log("jwt_payload", jwt_payload);
